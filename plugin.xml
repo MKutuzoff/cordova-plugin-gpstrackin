@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+        id="cordova-plugin-gpstracking" version="0.1.0">
+    <name>GpsTracking</name>
+    <description>GPS tracking</description>
+    <license>Apache 2.0</license>
+    <keywords>cordova,device</keywords>
+    <js-module src="www/gpstracking.js" name="gpstracking">
+        <clobbers target="gpstracking" />
+    </js-module>
+    <platform name="android">
+        <config-file target="AndroidManifest.xml" parent="/*">
+            <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+			<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+			<uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+			<uses-permission android:name="android.permission.WAKE_LOCK"/>
+			<uses-permission android:name="android.permission.INTERNET"/>
+			<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+        </config-file>
+		
+		<config-file target="AndroidManifest.xml" parent="/application">
+			<receiver android:name=".TimerReceiver" android:enabled="true" android:exported="true"/>
+			<service android:name=".SendPositionService" android:enabled="true" android:exported="true" />
+		</config-file>
+
+        <config-file target="res/xml/config.xml" parent="/*">
+          <feature name="GpsTracking">
+              <param name="android-package" value="com.android.miklk.gpstracking.GpsTracking" />
+          </feature>
+        </config-file>
+
+		<source-file src="src/android/plugin/src/main/java/com/android/indy/gpstracking/GpsTracking.java" target-dir="src/com/android/indy/gpstracking/" />
+        <source-file src="src/android/plugin/src/main/java/com/android/indy/gpstracking/SendPositionService.java" target-dir="src/com/android/indy/gpstracking/" />
+        <source-file src="src/android/plugin/src/main/java/com/android/indy/gpstracking/TimerReceiver.java" target-dir="src/com/android/indy/gpstracking/" />
+
+        <js-module src="www/android/gpstracking.js" name="gpstracking">
+            <clobbers target="navigator.gpstracking" />
+        </js-module>
+
+        <!-- We don't expose PositionError via clobber on Android as we use it internally only -->
+        <js-module src="www/PositionError.js" name="PositionError">
+            <runs />
+        </js-module>
+
+    </platform>
+</plugin>

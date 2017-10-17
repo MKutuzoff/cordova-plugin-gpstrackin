@@ -1,0 +1,44 @@
+{
+  "_from": "cordova-plugin-gpstracking@~0.1.0",
+  "_id": "cordova-plugin-gpstracking@0.1.0",
+  "_inBundle": false,
+  "_location": "/cordova-plugin-gpstracking",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "range",
+    "registry": true,
+    "raw": "cordova-plugin-gpstracking@~0.1.0",
+    "name": "cordova-plugin-gpstracking",
+    "escapedName": "cordova-plugin-gpstracking",
+    "rawSpec": "~0.1.0",
+    "saveSpec": null,
+    "fetchSpec": "~0.1.0"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_spec": "cordova-plugin-gpstracking@~0.1.0",
+  "author": {
+    "name": "Apache Software Foundation"
+  },
+  "bundleDependencies": false,
+  "cordova": {
+    "id": "cordova-plugin-gpstracking",
+    "platforms": [
+      "android"
+    ]
+  },
+  "deprecated": false,
+  "description": "Cordova Gps Tracking Plugin",
+  "homepage": "https://github.com/apache/cordova-plugin-gpstracking#readme",
+  "keywords": [
+    "cordova",
+    "geolocation",
+    "ecosystem:cordova",
+    "cordova-android"
+  ],
+  "license": "Apache 2.0",
+  "name": "cordova-plugin-gpstracking",
+  "version": "0.1.0"
+}
